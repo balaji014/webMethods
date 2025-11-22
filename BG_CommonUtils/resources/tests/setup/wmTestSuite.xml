@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<webMethodsTestSuite description="This is for test cases related to CommonUtils" name="wmTestSuite">
+    <webMethodsTestCase description="Generate a Test Wizard" name="TC_addTwoNumbers">
+        <service folder="BG_CommonUtils.services" name="addTwoNumbers">
+            <input>
+                <file filename="resources/tests/data/BG_CommonUtils_services_addTwoNumbers_input.xml"/>
+            </input>
+            <expected>
+                <file filename="resources/tests/data/BG_CommonUtils_services_addTwoNumbers_output.xml"/>
+            </expected>
+        </service>
+    </webMethodsTestCase>
+</webMethodsTestSuite>
