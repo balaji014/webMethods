@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<webMethodsTestSuite description="Arithmetic operations test cases" name="arithmeticTestSuite">
+    <webMethodsTestCase description="add" name="TC_arith_add">
+        <service folder="DemoPkg.services" name="arithmeticOperation">
+            <input><file filename="resources/tests/data/arithmetic_add_input.xml"/></input>
+            <expected><file filename="resources/tests/data/arithmetic_add_output.xml"/></expected>
+        </service>
+    </webMethodsTestCase>
+    <webMethodsTestCase description="subtract" name="TC_arith_subtract">
+        <service folder="DemoPkg.services" name="arithmeticOperation">
+            <input><file filename="resources/tests/data/arithmetic_subtract_input.xml"/></input>
+            <expected><file filename="resources/tests/data/arithmetic_subtract_output.xml"/></expected>
+        </service>
+    </webMethodsTestCase>
+    <webMethodsTestCase description="multiply" name="TC_arith_multiply">
+        <service folder="DemoPkg.services" name="arithmeticOperation">
+            <input><file filename="resources/tests/data/arithmetic_multiply_input.xml"/></input>
+            <expected><file filename="resources/tests/data/arithmetic_multiply_output.xml"/></expected>
+        </service>
+    </webMethodsTestCase>
+    <webMethodsTestCase description="divide" name="TC_arith_divide">
+        <service folder="DemoPkg.services" name="arithmeticOperation">
+            <input><file filename="resources/tests/data/arithmetic_divide_input.xml"/></input>
+            <expected><file filename="resources/tests/data/arithmetic_divide_output.xml"/></expected>
+        </service>
+    </webMethodsTestCase>
+    <webMethodsTestCase description="divide by zero (error path)" name="TC_arith_divideByZero">
+        <service folder="DemoPkg.services" name="arithmeticOperation">
+            <input><file filename="resources/tests/data/arithmetic_divideByZero_input.xml"/></input>
+            <expected><file filename="resources/tests/data/arithmetic_divideByZero_output.xml"/></expected>
+        </service>
+    </webMethodsTestCase>
+    <webMethodsTestCase description="unsupported operator (error path)" name="TC_arith_invalidOperator">
+        <service folder="DemoPkg.services" name="arithmeticOperation">
+            <input><file filename="resources/tests/data/arithmetic_invalidOperator_input.xml"/></input>
+            <expected><file filename="resources/tests/data/arithmetic_invalidOperator_output.xml"/></expected>
+        </service>
+    </webMethodsTestCase>
+</webMethodsTestSuite>
