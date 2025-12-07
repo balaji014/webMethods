@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<FLOW VERSION="3.2" CLEANUP="true">
+  <SEQUENCE TIMEOUT="" EXIT-ON="SUCCESS">
+
+    <SEQUENCE NAME="try" TIMEOUT="" EXIT-ON="FAILURE">
+
+      <INVOKE TIMEOUT="" SERVICE="DemoPkg.services.utils:ReadFile" VALIDATE-IN="$none" VALIDATE-OUT="$none">
+        <MAP MODE="INPUT">
+          <MAPCOPY NAME="Link" FROM="/filePath;1;0" TO="/filePath;1;0">
+          </MAPCOPY>
+        </MAP>
+        <MAP MODE="OUTPUT">
+        </MAP>
+      </INVOKE>
+
+      <INVOKE TIMEOUT="" SERVICE="DemoPkg.services.utils:ComputeHash" VALIDATE-IN="$none" VALIDATE-OUT="$none">
+        <MAP MODE="INPUT">
+          <MAPCOPY NAME="Link" FROM="/fileContent;1;0" TO="/content;1;0">
+          </MAPCOPY>
+          <MAPCOPY NAME="Link" FROM="/hashAlgorithm;1;0" TO="/hashAlgorithm;1;0">
+          </MAPCOPY>
+        </MAP>
+        <MAP MODE="OUTPUT">
+        </MAP>
+      </INVOKE>
+
+      <INVOKE TIMEOUT="" SERVICE="DemoPkg.services.utils:CompareHashes" VALIDATE-IN="$none" VALIDATE-OUT="$none">
+        <MAP MODE="INPUT">
+          <MAPCOPY NAME="Link" FROM="/expectedHash;1;0" TO="/expectedHash;1;0">
+          </MAPCOPY>
+          <MAPCOPY NAME="Link" FROM="/hash;1;0" TO="/actualHash;1;0">
+          </MAPCOPY>
+        </MAP>
+        <MAP MODE="OUTPUT">
+        </MAP>
+      </INVOKE>
+
+      <MAP TIMEOUT="" MODE="STANDALONE">
+        <MAPCOPY NAME="Link" FROM="/hash;1;0" TO="/computedHash;1;0">
+        </MAPCOPY>
+        <MAPCOPY NAME="Link" FROM="/match;1;0" TO="/match;1;0">
+        </MAPCOPY>
+
+        <MAPDELETE NAME="Dropper" FIELD="/fileContent;1;0">
+        </MAPDELETE>
+        <MAPDELETE NAME="Dropper" FIELD="/hash;1;0">
+        </MAPDELETE>
+      </MAP>
+    </SEQUENCE>
+
+    <SEQUENCE NAME="catch" TIMEOUT="" EXIT-ON="FAILURE">
+
+      <INVOKE TIMEOUT="" SERVICE="pub.flow:getLastError" VALIDATE-IN="$none" VALIDATE-OUT="$none">
+        <MAP MODE="INPUT">
+        </MAP>
+
+        <MAP MODE="OUTPUT">
+        </MAP>
+      </INVOKE>
+    </SEQUENCE>
+  </SEQUENCE>
+</FLOW>

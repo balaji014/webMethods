@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<FLOW VERSION="3.2" CLEANUP="true">
+  <SEQUENCE TIMEOUT="" EXIT-ON="SUCCESS">
+
+    <SEQUENCE NAME="try" TIMEOUT="" EXIT-ON="FAILURE">
+
+      <INVOKE TIMEOUT="" SERVICE="pub.string:compareStrings" VALIDATE-IN="$none" VALIDATE-OUT="$none">
+
+        <MAP MODE="INPUT">
+          <MAPCOPY NAME="Link" FROM="/expectedHash;1;0" TO="/inString1;1;0">
+          </MAPCOPY>
+          <MAPCOPY NAME="Link" FROM="/actualHash;1;0" TO="/inString2;1;0">
+          </MAPCOPY>
+        </MAP>
+
+        <MAP MODE="OUTPUT">
+          <MAPCOPY NAME="Link" FROM="/isEqual;1;0" TO="/match;1;0">
+          </MAPCOPY>
+        </MAP>
+      </INVOKE>
+    </SEQUENCE>
+
+    <SEQUENCE NAME="catch" TIMEOUT="" EXIT-ON="FAILURE">
+
+      <INVOKE TIMEOUT="" SERVICE="pub.flow:getLastError" VALIDATE-IN="$none" VALIDATE-OUT="$none">
+        <MAP MODE="INPUT">
+        </MAP>
+
+        <MAP MODE="OUTPUT">
+        </MAP>
+      </INVOKE>
+    </SEQUENCE>
+  </SEQUENCE>
+</FLOW>

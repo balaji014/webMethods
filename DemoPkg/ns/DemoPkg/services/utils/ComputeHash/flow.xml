@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<FLOW VERSION="3.2" CLEANUP="true">
+  <SEQUENCE TIMEOUT="" EXIT-ON="SUCCESS">
+
+    <SEQUENCE NAME="try" TIMEOUT="" EXIT-ON="FAILURE">
+
+      <INVOKE TIMEOUT="" SERVICE="pub.security:generateHashValue" VALIDATE-IN="$none" VALIDATE-OUT="$none">
+
+        <MAP MODE="INPUT">
+          <MAPCOPY NAME="Link" FROM="/content;1;0" TO="/inputString;1;0">
+          </MAPCOPY>
+
+          <MAPSET NAME="Setter" OVERWRITE="false" VARIABLES="false" FIELD="/hashAlgorithm;1;0">
+            <DATA ENCODING="XMLValues" I18N="true">
+
+<Values version="2.0">
+  <value name="xml">SHA256</value>
+  <record name="type" javaclass="com.wm.util.Values">
+    <value name="node_type">unknown</value>
+    <value name="field_name">hashAlgorithm</value>
+    <value name="field_type">string</value>
+    <value name="field_dim">0</value>
+    <value name="nillable">true</value>
+  </record>
+</Values>
+</DATA>
+          </MAPSET>
+        </MAP>
+
+        <MAP MODE="OUTPUT">
+          <MAPCOPY NAME="Link" FROM="/hashedValue;1;0" TO="/hash;1;0">
+          </MAPCOPY>
+
+          <MAPDELETE NAME="Dropper" FIELD="/status;1;0">
+          </MAPDELETE>
+        </MAP>
+      </INVOKE>
+    </SEQUENCE>
+
+    <SEQUENCE NAME="catch" TIMEOUT="" EXIT-ON="FAILURE">
+
+      <INVOKE TIMEOUT="" SERVICE="pub.flow:getLastError" VALIDATE-IN="$none" VALIDATE-OUT="$none">
+        <MAP MODE="INPUT">
+        </MAP>
+
+        <MAP MODE="OUTPUT">
+        </MAP>
+      </INVOKE>
+    </SEQUENCE>
+  </SEQUENCE>
+</FLOW>
