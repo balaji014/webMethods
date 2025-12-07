@@ -1,6 +1,7 @@
 # DemoPkg
 
 Utility math services and file integrity utilities for Integration Server.
+Utility math services for Integration Server.
 
 ## Services
 - `DemoPkg.services:addTwoNumbers`: adds `num1` and `num2`, returns `result`; wrapped in try/catch with `pub.flow:getLastError`.
