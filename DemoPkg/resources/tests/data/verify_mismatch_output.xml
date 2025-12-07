@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<IDataXMLCoder version="1.0">
+  <record javaclass="com.wm.util.Values">
+    <value name="computedHash">2b2d77da3305c23dc76c8f33c9185928e19a5ad5c9e8639f99fa3d8b6242d745</value>
+    <value name="match">false</value>
+  </record>
+</IDataXMLCoder>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<webMethodsTestSuite description="File integrity utilities" name="fileIntegrityTestSuite">
+    <webMethodsTestCase description="Verify success" name="TC_verify_success">
+        <service folder="DemoPkg.services.utils" name="VerifyFileIntegrity">
+            <input><file filename="resources/tests/data/verify_success_input.xml"/></input>
+            <expected><file filename="resources/tests/data/verify_success_output.xml"/></expected>
+        </service>
+    </webMethodsTestCase>
+    <webMethodsTestCase description="Verify mismatch" name="TC_verify_mismatch">
+        <service folder="DemoPkg.services.utils" name="VerifyFileIntegrity">
+            <input><file filename="resources/tests/data/verify_mismatch_input.xml"/></input>
+            <expected><file filename="resources/tests/data/verify_mismatch_output.xml"/></expected>
+        </service>
+    </webMethodsTestCase>
+    <webMethodsTestCase description="Verify missing file triggers error" name="TC_verify_missing">
+        <service folder="DemoPkg.services.utils" name="VerifyFileIntegrity">
+            <input><file filename="resources/tests/data/verify_missing_input.xml"/></input>
+            <expected><file filename="resources/tests/data/verify_missing_output.xml"/></expected>
+        </service>
+    </webMethodsTestCase>
+    <webMethodsTestCase description="ReadFile helper" name="TC_readFile">
+        <service folder="DemoPkg.services.utils" name="ReadFile">
+            <input><file filename="resources/tests/data/readFile_input.xml"/></input>
+            <expected><file filename="resources/tests/data/readFile_output.xml"/></expected>
+        </service>
+    </webMethodsTestCase>
+    <webMethodsTestCase description="ComputeHash helper" name="TC_computeHash">
+        <service folder="DemoPkg.services.utils" name="ComputeHash">
+            <input><file filename="resources/tests/data/computeHash_input.xml"/></input>
+            <expected><file filename="resources/tests/data/computeHash_output.xml"/></expected>
+        </service>
+    </webMethodsTestCase>
+    <webMethodsTestCase description="CompareHashes helper" name="TC_compareHashes">
+        <service folder="DemoPkg.services.utils" name="CompareHashes">
+            <input><file filename="resources/tests/data/compareHashes_input.xml"/></input>
+            <expected><file filename="resources/tests/data/compareHashes_output.xml"/></expected>
+        </service>
+    </webMethodsTestCase>
+</webMethodsTestSuite>
