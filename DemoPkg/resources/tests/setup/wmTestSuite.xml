@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<webMethodsTestSuite description="Test cases for DemoPkg addTwoNumbers with try/catch + getLastError" name="wmTestSuite">
+    <webMethodsTestCase description="Adds two positive ints" name="TC_addTwoNumbers_positive">
+        <service folder="DemoPkg.services" name="addTwoNumbers">
+            <input>
+                <file filename="resources/tests/data/DemoPkg_services_addTwoNumbers_positive_input.xml"/>
+            </input>
+            <expected>
+                <file filename="resources/tests/data/DemoPkg_services_addTwoNumbers_positive_output.xml"/>
+            </expected>
+        </service>
+    </webMethodsTestCase>
+
+    <webMethodsTestCase description="Handles zeros" name="TC_addTwoNumbers_zero">
+        <service folder="DemoPkg.services" name="addTwoNumbers">
+            <input>
+                <file filename="resources/tests/data/DemoPkg_services_addTwoNumbers_zero_input.xml"/>
+            </input>
+            <expected>
+                <file filename="resources/tests/data/DemoPkg_services_addTwoNumbers_zero_output.xml"/>
+            </expected>
+        </service>
+    </webMethodsTestCase>
+
+    <webMethodsTestCase description="Supports negatives" name="TC_addTwoNumbers_negative">
+        <service folder="DemoPkg.services" name="addTwoNumbers">
+            <input>
+                <file filename="resources/tests/data/DemoPkg_services_addTwoNumbers_negative_input.xml"/>
+            </input>
+            <expected>
+                <file filename="resources/tests/data/DemoPkg_services_addTwoNumbers_negative_output.xml"/>
+            </expected>
+        </service>
+    </webMethodsTestCase>
+
+    <webMethodsTestCase description="Large values" name="TC_addTwoNumbers_large">
+        <service folder="DemoPkg.services" name="addTwoNumbers">
+            <input>
+                <file filename="resources/tests/data/DemoPkg_services_addTwoNumbers_large_input.xml"/>
+            </input>
+            <expected>
+                <file filename="resources/tests/data/DemoPkg_services_addTwoNumbers_large_output.xml"/>
+            </expected>
+        </service>
+    </webMethodsTestCase>
+
+    <webMethodsTestCase description="Invalid input triggers catch + getLastError" name="TC_addTwoNumbers_invalid">
+        <service folder="DemoPkg.services" name="addTwoNumbers">
+            <input>
+                <file filename="resources/tests/data/DemoPkg_services_addTwoNumbers_invalid_input.xml"/>
+            </input>
+            <expected>
+                <file filename="resources/tests/data/DemoPkg_services_addTwoNumbers_invalid_output.xml"/>
+            </expected>
+        </service>
+    </webMethodsTestCase>
+</webMethodsTestSuite>
